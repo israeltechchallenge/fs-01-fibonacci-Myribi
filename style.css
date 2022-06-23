@@ -1,15 +1,16 @@
-.container {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number] {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
 }
 
-.start {
-    padding-right: 14px;
-}
-
-#button {
-    margin: 0px 14px;
-}
+.erreur50 {
+    margin-left: 18%;
+    background-color: #F2DEDE;
+    width: fit-content;
+    padding: 5px;
+    border: solid #EBCCCC;
+    border-radius: 4px;
+  }

@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style.css" />
 
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <h1 id="title">Fibonacci Calculator</h1>
-    <div class="container">
-        <div class="start">The Fibonacci Of </div>
-        <input min="0" id="number" type="number" placeholder="#">
-        <button class="btn btn-primary btn-sm" id="button" type="button" onclick="inputChange()">Is</button>
-        <div id="result"></div>
+  <body>
+   
+    <h1 id="title" class="display-1 m-5">Fibonacci Calculator</h1>
+    <div class="d-flex flex-column">
+    <div class="d-flex flex-row ms-5 align-items-center">
+      <div class="fs-4 p-1">The Fibonacci of</div>
+      <div class=" p-1">
+        <input
+          type="number"
+          size="1"
+          class="form-control"
+          placeholder="#"
+          id="number"
+        />
+        </div>
+      
+      <div class="p-1">
+        <button class="btn btn-primary btn-sm" id="btn" type="button">
+          is
+        </button>
+      </div>
+      <div id="loader" class="text-dark" role="status">
+        <span class="sr-only"></span>
+      </div>
+      <div id="result"></div>
+      
     </div>
-    <script src="./fibonacci.js"></script>
+
+    <div id="error" class="erreur50 d-none"></div>
+    </div>
     
-</body>
- 
+    <script src="./fibonacci.js"></script>
+  </body>
 </html>
