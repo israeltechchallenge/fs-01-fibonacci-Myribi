@@ -1,25 +1,38 @@
 const loader = document.getElementById("loader");
+const loader2 = document.getElementById("loader2");
 let btn = document.getElementById("btn");
 let result = document.getElementById("result");
 let checked = document.getElementById("flexCheckDefault");
+let menu = document.getElementById("menu");
+
+function removeSpinner() {
+  loader.classList.remove("spinner-border");
+}
+function removeSpinner2() {
+  loader2.classList.remove("spinner-border");
+}
 
 function callServer(number) {
   fetch(`http://localhost:5050/fibonacci/${number}`)
-    .then((response) => {
+   .then((response) => {
       if (!response.ok) {
         response.text().then((erText) => {
           result.innerHTML = "Server Error:" + " " + erText;
           result.classList.add("text-danger");
-          loader.classList.remove("spinner-border");
-        });
-      }
-
-      return response.json();
+          removeSpinner();
+          removeSpinner2()
+        });        
+      } else {
+        return response.json();
+      }     
     })
-
     .then((data) => {
-      result.innerHTML = data["result"];
-      loader.classList.remove("spinner-border");
+      if (data) {
+        result.innerHTML = data["result"];
+      }
+      removeSpinner();
+      removeSpinner2()
+      
     });
   callServerHistory();
 }
@@ -27,6 +40,7 @@ function callServer(number) {
 btn.addEventListener("click", function () {
   let nums = parseInt(document.getElementById("number").value);
   loader.classList.add("spinner-border");
+  loader2.classList.add("spinner-border");
   let inputField = document.querySelector("input");
   result.innerText = "";
   error.innerText = "";
@@ -42,13 +56,15 @@ btn.addEventListener("click", function () {
     error.classList.add("error");
     error.classList.remove("d-none");
     error.innerText = "Can't be larger than 50";
-    loader.classList.remove("spinner-border");
+    removeSpinner();
+    removeSpinner2()
     inputField.classList.add("text-danger", "border-danger");
     return;
   }
   if (checkbox.checked === false) {
     fibonacci();
-    loader.classList.remove("spinner-border");
+    removeSpinner();
+    removeSpinner2()
   } else {
     error.classList.remove("error");
     callServer(nums);
@@ -57,9 +73,11 @@ btn.addEventListener("click", function () {
 });
 
 function callServerHistory() {
+  
   fetch("http://localhost:5050/getFibonacciResults")
     .then((response) => {
       return response.json();
+      
     })
 
     .then((data) => {
@@ -101,3 +119,4 @@ function fibonacci() {
   }
   result.innerHTML = `<strong><u>${y}</u></strong>`;
 }
+
