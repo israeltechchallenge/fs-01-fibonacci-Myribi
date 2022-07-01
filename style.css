@@ -5,9 +5,7 @@ input[type=number] {
   margin: 0;
   -moz-appearance: textfield;
 }
-
-.erreur50 {
-    
+.erreur50 {  
     background-color: #F2DEDE;
     width: fit-content;
     padding: 2px;
@@ -15,7 +13,9 @@ input[type=number] {
     border-radius: 4px;
     color: #A94442
   }
-
  .btn-grey {
   background-color: #cccccc;
  }
+.border-bottom {
+  width:80%;
+}
