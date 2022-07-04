@@ -1,0 +1,21 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number] {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+.erreur50 {  
+    background-color: #F2DEDE;
+    width: fit-content;
+    padding: 2px;
+    border: solid #EBCCCC;
+    border-radius: 4px;
+    color: #A94442
+  }
+ .btn-grey {
+  background-color: #cccccc;
+ }
+.border-bottom {
+  width:80%;
+}
